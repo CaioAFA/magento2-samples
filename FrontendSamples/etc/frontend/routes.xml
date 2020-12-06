@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
+    <router id="standard">
+        <!-- Para acessar a página:
+             frontendsamples/<pasta dentro de Controller>/<nome do arquivo dentro de Controller> -->
+        <route id="frontendsamples" frontName="frontendsamples">
+            <module name="Caio_FrontendSamples" />
+        </route>
+    </router>
+</config>

@@ -1,0 +1,71 @@
+<!--
+    Todas as funções PHP utilizadas aqui estão definidar no arquivo Block/BlockLayout.php.
+    Elas são acessíveis através da variável $block, pois esse template foi vinculado ao arquivo PHP
+    nas configurações em view/frontend/layout/frontendsamples_content_newcontent.xml.
+-->
+
+<!-- Layout em Block -->
+<div>
+    <h2><b>Block Layout</b></h3>
+    <p>Blocks são úteis quando queremos juntar códigos HTML com códigos PHP provindos do Magento. Abaixo, alguns exemplos:</p>
+    <p>Texto Simples: <?= $block->getSampleText(); ?></p>
+    <p>Exemplo de Laço e Array:
+        <?php
+            $sampleArray = $block->getSampleArray();
+            foreach($sampleArray as $element){
+                echo $element . ' ';
+            }
+        ?>
+    </p>
+    <p>Renderizando TODOS os blocos filhos (adicionados via XML):</p>
+    <i>
+        <?php
+            $allChildBlocks = $block->getChildNames();
+
+            foreach($allChildBlocks as $childBlock){
+                echo $this->getChildHtml($childBlock);
+            }
+        ?>
+    </i>
+</div>
+
+<br>
+
+<!-- Layout - Componentes -->
+<div>
+    <h2><b>Layout - Componentes</b></h3>
+    <p>Componentes são úteis quando o seu conteúdo pode ser carregado posteriormente na página via Knockout. Dessa forma, a performance do site não é tão afetada.</p>
+    <p>Além disso, é útil quando queremos inserir um mesmo componente em várias páginas diferentes.</p>
+
+    <p>Abaixo, um exemplo de como carregar componentes em arquivos .phtml e arquivos .html.</p>
+
+    <!-- O "scope" deve ser o nome do componente (configurado no XML). No caso, chama-se child_component. -->
+    <div id="child_component" data-bind="scope: 'child_component'">
+
+        <!-- Esse código abaixo faz com que o template seja carregado. -->
+        <!-- ko template: getTemplate() --><!-- /ko -->
+
+        <!-- Devemos passar o ID da div acima como parâmetro aqui em baixo. -->
+        <script type="text/x-magento-init">
+            {
+                "#child_component": {
+                    "Magento_Ui/js/core/app": <?php /* @escapeNotVerified */ echo $block->getJsLayout();?>
+                }
+            }
+        </script>
+
+        <!--
+            Código necessário. Além disso, caso seja necessário adicionar funções JS em arquivos .phtml,
+            é assim que se faz. Podemos fazer os imports de dependências da mesma maneira também.
+        -->
+        <script>
+            require([
+                'mage/url',
+                'Magento_Ui/js/block-loader'
+            ], function(url, blockLoader) {
+                blockLoader("<?php /* @escapeNotVerified */ echo $block->getViewFileUrl('images/loader-1.gif'); ?>");
+                return url.setBaseUrl('<?php /* @escapeNotVerified */ echo $block->getBaseUrl();?>');
+            })
+        </script>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+<i>
+    Eu sou um componente filho carregado dentro do arquivo .phtml através do Knockout!<br>
+    Abaixo, alguns exemplos de como utilizar funções JS em componentes:<br><br>
+    <!--
+        Essas funções são definidas no arquivo JS do componente, definido no XML.
+        Elas são vinculadas através do bind "click" do Knockout.
+    -->
+    <button data-bind="click: sampleClickFunction">Exemplo de Função JS em Componente</button>
+    <button data-bind="click: importedFunction">Exemplo de Função de outro arquivo JS</button>
+
+    <br>
+    <br>
+
+    Agora, vou carregar um elemento filho, definido no XML:<br><br>
+    <!-- Carregamos esse template, definido no XML, através do parâmetro displayArea. -->
+    <!-- ko foreach: getRegion('child_of_child_component') -->
+        <!-- ko template: getTemplate() --><!-- /ko -->
+    <!-- /ko -->
+</i>

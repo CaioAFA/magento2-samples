@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+
+<!--
+    Para descobrir o nome desse arquivo, instale a extensão Quick Dev Bar.
+    Ative-a, entre em alguma página do Magento, abra a Quick Dev Bar -> Design -> Handles.
+    O nome do arquivo deve ser NOME_HANDLE.xml.
+-->
+
+<!--
+    OBS: Sem esse arquivo de configuração, a página renderizada fica branca.
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <!-- Esse arquivo CSS está localizado em: view/frontend/web/css/my-custom-css.css  -->
+        <!-- A sintaxe é: NOME_MÓDULO::css/some-css.css  -->
+        <css src="Caio_FrontendSamples::css/my-custom-css.css" />
+    </head>
+
+    <body>
+        <!--
+            Esse é o bloco "principal" da página. O conteúdo será renderizado entre o Header e o Footer,
+            pois é onde o Block está localizado.
+            
+            Podemos inserir elementos em outros blocos também, basta descobrir seu nome nos arquivos
+            XML.
+        -->
+        <referenceContainer name="content">
+
+            <!--
+                class: Classe PHP onde temos as funções que serão utilizadas no arquivo .phtml
+                name: Um nome que podemos referenciar posteriormente para remove-lo, adicionar blocks, etc.
+                template: Arquivo .phtml que será renderizado. Ele está em view/frontend/templates/block.phtml
+            -->
+            <block
+            class="Caio\FrontendSamples\Block\BlockLayout"
+            name="new-block"
+            template="Caio_FrontendSamples::content.phtml">
+
+                <!-- Adicionando Componentes Filhos (carregados via Knockout) -->
+                <arguments>
+                    <argument name="jsLayout" xsi:type="array">
+                        <item name="components" xsi:type="array">
+
+                            <!-- Aqui, podemos adicionar vários componentes filhos -->
+                            <item name="child_component" xsi:type="array">
+
+                                <!--
+                                    Precisamos de um arquivo Javascript para renderizar o componente.
+                                    O arquivo Caio_FrontendSamples/js/child_component fica em:
+                                        - view/frontend/web/js/child_component.js
+                                -->
+                                <item name="component" xsi:type="string">Caio_FrontendSamples/js/child_component</item>
+
+                                <!-- Através desse parâmetro conseguimos recuperar esse componente no código HTML (não no PHTML). -->
+                                <item name="displayArea" xsi:type="string">child_component</item>
+
+                                <!--
+                                    Podemos configurar o template do componente pelo arquivo JS
+                                    ou da seguinte forma:
+                                    <item name="config" xsi:type="array">
+                                        <item name="template" xsi:type="string">Magento_Checkout/minicart/content</item>
+                                    </item>
+                                -->
+
+                                <!-- Assim que passamos elementos filhos como parâmetro para Componentes. -->
+                                <item name="children" xsi:type="array">
+                                    <item name="child_of_child" xsi:type="array">
+                                        <item name="component" xsi:type="string">Caio_FrontendSamples/js/child_of_child_component</item>
+                                        <item name="displayArea" xsi:type="string">child_of_child_component</item>
+                                    </item>
+                                </item>
+
+                            </item>
+                        </item>
+                    </argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+
+        <!-- Adicionando um novo bloco ao bloco criado (new-block) -->
+        <referenceContainer name="new-block">
+
+            <!-- Não precisamos necessariamente de uma Classe -->
+            <block
+                name="child-block"
+                template="Caio_FrontendSamples::child_block.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

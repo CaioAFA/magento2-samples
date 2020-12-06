@@ -1,0 +1,13 @@
+button{
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+button:hover{
+    border: 2px solid orangered !important;
+    box-shadow: 10px 10px;
+}
+
+h2{
+    color: black;
+}
