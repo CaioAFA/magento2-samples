@@ -1,0 +1,25 @@
+<div id="adminpagecontent" data-bind="scope: 'adminpagecontent'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+
+    <script type="text/x-magento-init">
+        {
+            "#adminpagecontent": {
+                "Magento_Ui/js/core/app": <?php /* @escapeNotVerified */ echo $block->getJsLayout();?>
+            }
+        }
+    </script>
+
+    <script>
+        // É desse jeito que passamos dados do Backend pro Javascript, através da variável
+        // global window.
+        window.adminSamplePostUrl = '<?= /** @noEscape */ $block->getUrl('admindatasend/adminsample/adminpost')?>';
+
+        require([
+            'mage/url',
+            'Magento_Ui/js/block-loader'
+        ], function(url, blockLoader) {
+            blockLoader("<?php /* @escapeNotVerified */ echo $block->getViewFileUrl('images/loader-1.gif'); ?>");
+            return url.setBaseUrl('<?php /* @escapeNotVerified */ echo $block->getBaseUrl();?>');
+        })
+    </script>
+</div>

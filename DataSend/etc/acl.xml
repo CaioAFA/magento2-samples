@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!--
+    Arquivo de permissões para acessar a página de exemplo do Painel Administrativo.
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Caio_DataSend::datasend" title="Caio Data Send (Modulo Exemplo)" sortOrder="10" />
+            </resource>
+        </resources>
+    </acl>
+</config>

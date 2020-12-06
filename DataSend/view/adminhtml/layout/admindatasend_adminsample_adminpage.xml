@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-1column"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <!-- O template do bloco está disponível em: view/adminhtml/templates/adminblock.phtml -->
+            <block
+            class="Caio\DataSend\Block\Adminhtml\AdminSample"
+            name="datasend-sample-block"
+            template="Caio_DataSend::adminblock.phtml">
+                <arguments>
+                    <argument name="jsLayout" xsi:type="array">
+                        <item name="components" xsi:type="array">
+                            <item name="adminpagecontent" xsi:type="array">
+                                <item name="component" xsi:type="string">Caio_DataSend/js/adminpagecontent</item>
+                                <item name="displayArea" xsi:type="string">adminpagecontent</item>
+                            </item>
+                        </item>
+                    </argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

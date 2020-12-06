@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <!-- Adiciona a opção "Caio" ao menu do Painel Administrativo -->
+        <add id="Caio_DataSend::datasend"
+             title="CaioDataSend"
+             module="Caio_DataSend"
+             sortOrder="40"
+             resource="Caio_DataSend::datasend"
+        />
+
+        <!-- action = adminhtml_route_id/<pasta_em_Controller/Adminhtml>/nome_arquivo (sem .php) -->
+        <add id="Caio_DataSend::adminhtmlsample"
+             title="Acessar Página De Exemplo - AJAX"
+             translate="title"
+             module="Caio_DataSend"
+             parent="Caio_DataSend::datasend"
+             sortOrder="20"
+             action="admindatasend/adminsample/adminpage"
+             resource="Caio_DataSend::datasend" />
+    </menu>
+</config>
