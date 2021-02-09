@@ -12,6 +12,7 @@
                     <argument name="jsLayout" xsi:type="array">
                         <item name="components" xsi:type="array">
                             <item name="adminpagecontent" xsi:type="array">
+                                <!-- Esse arquivo está em: view/adminhtml/web/js/adminpagecontent.js -->
                                 <item name="component" xsi:type="string">Caio_DataSend/js/adminpagecontent</item>
                                 <item name="displayArea" xsi:type="string">adminpagecontent</item>
                             </item>
