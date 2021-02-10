@@ -6,6 +6,8 @@ Esse módulo exemplifica:
 # Dica
 **Jamais** crie pastas dentro de Controller/Adminhtml que **começem com "Adminhtml"**, pois isso não funciona!
 
+Se a rota não estiver dando certo de modo nenhum, **LIMPE O CACHE!**
+
 # Instalação
 Execute o seguinte comando dentro da raíz do Magento 2:
 ```bash
