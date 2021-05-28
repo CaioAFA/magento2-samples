@@ -16,7 +16,7 @@ Esse módulo é uma introdução a edições de Frontend. Ele exemplifica:
 
 ./view/frontend/web: pasta com arquivos css, JS e .html (esses último sendo carregado por Knockout e podendo utilizar o mesmo).
 
-# O que é necessário para carregar um template poe Knockout?
+# O que é necessário para carregar um template por Knockout?
 - Criar um block nos arquivos XML de layout (view/frontend/layout)
 
 - Criar o Block com as funções necessárias (Block)
