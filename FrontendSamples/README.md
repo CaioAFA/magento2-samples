@@ -17,11 +17,11 @@ Esse módulo é uma introdução a edições de Frontend. Ele exemplifica:
 ./view/frontend/web: pasta com arquivos css, JS e .html (esses último sendo carregado por Knockout e podendo utilizar o mesmo).
 
 # O que é necessário para carregar um template por Knockout?
-- Criar um block nos arquivos XML de layout (view/frontend/layout)
+- Criar um block no arquivo XML de layout referente à página (localizado em view/frontend/layout). O nome do arquivo será NOME_ROTA/NOME_PASTA_CONTROLLER/NOME_ARQUIVO_CONTROLLER.
 
 - Criar o Block com as funções necessárias (Block)
 
-- Criar o arquivo .js e .html do template. Se necessário, criar também o de CSS (view/frontend/web/)
+- Criar o arquivo .js e .html do template. Se necessário, criar também o de CSS (dentro de view/frontend/web/css)
 
 - Adicionar o componente a ser carregado por Knockout como filho do Bloco ou como filho de outro componente.
 

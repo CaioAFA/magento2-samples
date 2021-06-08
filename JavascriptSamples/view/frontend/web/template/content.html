@@ -1,0 +1,42 @@
+<p>
+    <b>OBS:</b> Todas as funções estão definidas no arquivo view/frontend/web/js/samples.js.
+</p>
+
+<h1>Exemplos de JavaScript</h1>
+
+
+<h2>Evento de clique</h2>
+<p>
+    Para vincular um evento de clique, adicione o data-bind <i>click</i> seguido do nome da
+função definido no arquivo JS.
+</p>
+<span data-bind="click: myClickFunction">Clique em mim!</span>
+
+<br/>
+<br/>
+
+<h2>After Render</h2>
+<p>
+    Esse data-bind é muito útil quando queremos executar algum código <b>apenas depois do
+    componente ser renderizado</b>!
+</p>
+<span data-bind="afterRender: myAfterRenderFunction"></span>
+
+<br/>
+<br/>
+
+<h2>Loader</h2>
+<p>
+    Esse é um data-bind dos mais úteis: criamos um efeito de Loading nos componentes que desejamos.
+    E o melhor: é muito simples! Precisamos apenas definir uma variável que indica se o Loader
+    está ativo e atrelá-la à alguma Tag HTML. Observe o exemplo abaixo.
+</p>
+<div style="width: 400px; height: 400px; background-color: yellow;" data-bind="blockLoader: myDivIsLoading">
+    <button data-bind="click: loadMyDiv">Clique aqui para iniciar o loading</button>
+</div>
+
+<style>
+    h1, h2 {
+        font-weight: bold;
+    }
+</style>
