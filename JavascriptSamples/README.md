@@ -4,6 +4,7 @@ com seus arquivos JS.
 - afterRender: como executar códigos apenas depois que algum componente for renderizado.
 - blockLoader: efeito de loading muito simples de ser implementado.
 - click: como atrelar eventos de clique.
+- initialize: TODO
 
 # Principais arquivos
 - view/frontend/web/js/samples.js (arquivo onde estão os códigos de exemplo)
