@@ -5,6 +5,7 @@ com seus arquivos JS.
 - blockLoader: efeito de loading muito simples de ser implementado.
 - click: como atrelar eventos de clique.
 - initialize: executado toda vez que o arquivo JS é iniciado ou chamado com () dentro de outro arquivo JS.
+- Modal: como criar um Modal de forma simples.
 
 # Principais arquivos
 - view/frontend/web/js/samples.js (arquivo onde estão os códigos de exemplo)
