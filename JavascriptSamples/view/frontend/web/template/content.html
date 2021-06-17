@@ -27,8 +27,9 @@ função definido no arquivo JS.
 <h2>After Render</h2>
 <p>
     Esse data-bind é muito útil quando queremos executar algum código <b>apenas depois do
-    componente ser renderizado</b>!
-    O alerta exibido ao carregar essa página ocorre por causa de um afterRender!
+    componente ser renderizado</b>! O alerta exibido ao carregar essa página ocorre por causa de um afterRender!
+    <br/>
+    Dica: podemos passar parâmetros para a função. Exemplo: data-bind="afterRender: () => myFunction('myParameter')"
 </p>
 <span data-bind="afterRender: myAfterRenderFunction"></span>
 
