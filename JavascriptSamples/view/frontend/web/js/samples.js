@@ -1,7 +1,9 @@
 define([
     'uiComponent',
-    'ko'
-], function(Component, ko){
+    'ko',
+    'jquery',
+    'Magento_Ui/js/modal/modal'
+], function(Component, ko, $, modal){
     return Component.extend({
         defaults: {
             template: 'Caio_JavascriptSamples/content.html'
@@ -31,6 +33,32 @@ define([
             setTimeout(() => {
                 this.myDivIsLoading(false)
             }, 3000)
+        },
+
+        initModal: function(){
+            var options = {
+                type: 'popup', // Tente "slide" também
+                responsive: false, // Se ativado, no mobile, o modal ficará na direita da tela
+                innerScroll: true,
+                title: 'Meu Modal',
+                clickableOverlay: false, // Se falso, não fecha o modal ao clicar fora dele
+                buttons: [{
+                    text: $.mage.__('Continue'),
+                    class: 'my-modal-button',
+                    click: function () {
+                        this.closeModal();
+                    }
+                }],
+                keyEventHandlers: {
+                    escapeKey: function () { return; }, // Desabilita a tecla "Esc" de fechar o modal
+                }
+            };
+
+            var popup = modal(options, $('#my-modal'));
+        },
+
+        openModal: function(){
+            $("#my-modal").modal("openModal");
         }
     });
 });

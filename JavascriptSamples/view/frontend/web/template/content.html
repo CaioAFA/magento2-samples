@@ -28,6 +28,7 @@ função definido no arquivo JS.
 <p>
     Esse data-bind é muito útil quando queremos executar algum código <b>apenas depois do
     componente ser renderizado</b>!
+    O alerta exibido ao carregar essa página ocorre por causa de um afterRender!
 </p>
 <span data-bind="afterRender: myAfterRenderFunction"></span>
 
@@ -43,6 +44,17 @@ função definido no arquivo JS.
 <div style="width: 400px; height: 400px; background-color: yellow;" data-bind="blockLoader: myDivIsLoading">
     <button data-bind="click: loadMyDiv">Clique aqui para iniciar o loading</button>
 </div>
+
+<br/>
+<br/>
+
+<h2>Modal</h2>
+<p>
+    É possível criar um Modal de forma muito fácil no Magento 2. Observe o código fonte e clique
+    no botão abaixo:
+</p>
+<button data-bind="click: openModal">Clique!</button>
+<div id="my-modal" data-bind="afterRender: initModal">Heeey! Eu sou um modal!</div>
 
 <style>
     h1, h2 {
