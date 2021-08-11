@@ -7,5 +7,5 @@
     </type>
 
     <preference for="Caio\AddRestApiData\Api\Data\MyCustomAttributeInterface"
-        type="Caio\AddRestApiData\Model\MyCustomAttributeInterface"/>
+        type="Caio\AddRestApiData\Model\MyCustomAttribute"/>
 </config>

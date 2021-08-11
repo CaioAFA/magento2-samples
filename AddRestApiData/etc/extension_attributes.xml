@@ -2,14 +2,17 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Api/etc/extension_attributes.xsd">
 
     <extension_attributes for="Magento\Sales\Api\Data\OrderItemInterface">
+        <!-- Simple String -->
         <attribute
             code="my_simple_custom_attribute"
             type="string"/>
 
+        <!-- My custom data struct -->
         <attribute
             code="my_advanced_custom_attribute"
             type="Caio\AddRestApiData\Api\Data\MyCustomAttributeInterface"/>
 
+        <!-- Array of my data struct -->
         <attribute
             code="my_advanced_custom_attribute_array"
             type="Caio\AddRestApiData\Api\Data\MyCustomAttributeInterface[]"/>

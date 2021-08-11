@@ -2,7 +2,7 @@
 
 namespace Caio\AddRestApiData\Model;
 
-class MyCustomAttributeInterface
+class MyCustomAttribute
     extends \Magento\Framework\Model\AbstractExtensibleModel
     implements \Caio\AddRestApiData\Api\Data\MyCustomAttributeInterface
 {

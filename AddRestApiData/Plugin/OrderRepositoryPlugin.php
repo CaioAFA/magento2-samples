@@ -16,11 +16,50 @@ class OrderRepositoryPlugin
         $this->myCustomAttributeFactory = $myCustomAttributeFactory;
     }
 
+    // Execute after Rest Api function to get only one order
     public function afterGet(OrderRepositoryInterface $subject, OrderInterface $order)
     {
+        foreach($order->getAllVisibleItems() as $item){
+            // Get model extension attributes
+            $ext = $item->getExtensionAttributes();
+
+            // Set my_simple_custom_attribute
+            $ext->setMySimpleCustomAttribute("My Attribute!");
+            
+            // Set my_advanced_custom_attribute
+            $a = $this->myCustomAttributeFactory->create();
+            $a->setMyStringValue('some string');
+            $a->setMyBoolValue(false);
+            $a->setMyIntValue(19);
+            $a->setMyFloatValue(3.14);
+            $ext->setMyAdvancedCustomAttribute($a);
+
+            // Set my_advanced_custom_attribute_array
+            $b = $this->myCustomAttributeFactory->create();
+            $b->setMyStringValue('other string');
+            $b->setMyBoolValue(true);
+            $b->setMyIntValue(119);
+            $b->setMyFloatValue(13.94);
+
+            $c = $this->myCustomAttributeFactory->create();
+            $c->setMyStringValue('wow! other string');
+            $c->setMyBoolValue(true);
+            $c->setMyIntValue(1199);
+            $c->setMyFloatValue(132.94);
+
+            $customArray = [];
+            $customArray[] = $b;
+            $customArray[] = $c;
+            $ext->setMyAdvancedCustomAttributeArray($customArray);
+
+            // Adding custom attributes to API
+            $item->setExtensionAttributes($ext);
+        }
+
         return $order;
     }
 
+    // Execute after Rest Api function to get many orders
     public function afterGetList(OrderRepositoryInterface $subject, OrderSearchResultInterface $searchResult)
     {
         foreach ($searchResult->getItems() as $order) {
@@ -28,10 +67,10 @@ class OrderRepositoryPlugin
                 // Get model extension attributes
                 $ext = $item->getExtensionAttributes();
 
-                // my_simple_custom_attribute
+                // Set my_simple_custom_attribute
                 $ext->setMySimpleCustomAttribute("My Attribute!");
                 
-                // my_advanced_custom_attribute
+                // Set my_advanced_custom_attribute
                 $a = $this->myCustomAttributeFactory->create();
                 $a->setMyStringValue('some string');
                 $a->setMyBoolValue(false);
@@ -39,7 +78,7 @@ class OrderRepositoryPlugin
                 $a->setMyFloatValue(3.14);
                 $ext->setMyAdvancedCustomAttribute($a);
 
-                // my_advanced_custom_attribute_array
+                // Set my_advanced_custom_attribute_array
                 $b = $this->myCustomAttributeFactory->create();
                 $b->setMyStringValue('other string');
                 $b->setMyBoolValue(true);
