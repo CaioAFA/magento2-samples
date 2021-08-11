@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <type name="Magento\Sales\Api\OrderRepositoryInterface">
+        <plugin name="caio_addrestapidata_add_custom_attribute"
+                type="Caio\AddRestApiData\Plugin\OrderRepositoryPlugin" />
+    </type>
+
+    <preference for="Caio\AddRestApiData\Api\Data\MyCustomAttributeInterface"
+        type="Caio\AddRestApiData\Model\MyCustomAttributeInterface"/>
+</config>
